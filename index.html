@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Vue JS</title>
+</head>
+<body>
+	<div id="app">
+		<h1>{{ greet }}</h1>
+		<h1>{{ now }}</h1>
+		<img :src="imgSrc" alt="">
+		<h1>Reversed String : {{ stringRev }}</h1>
+		<h1>{{ num1 }} + {{ num2 }} = {{ sum }}</h1>
+		<h1>{{ num1 }} * {{ num2 }} = {{ mul }}</h1>
+		<div v-html="htmlContent"></div>
+
+		<br>
+		<hr>
+		<br>
+
+		<button v-on:click="changeText">Change Text</button>
+		<h1>{{ message }}</h1>
+		<button @click="showDate">Show Date Time</button>
+		<h1>{{ date }}</h1>
+		<button @click="counterData">Click To Count</button>
+		<h1>{{ counter }}</h1>
+		<button @click="changeColor">Change BG Color</button>
+		<h1 :style={color:colorText,background:bgColor}>{{ colorText }}</h1>
+
+		<br>
+		<hr>
+		<br>
+
+		<div>
+			<input type="text" v-model="seen">
+			<h1 v-if="seen=='A'">A Block</h1>
+			<h1 v-else-if="seen=='B'">B Block</h1>
+			<h1 v-else-if="seen=='C'">C Block</h1>
+			<h1 v-else-if="seen=='D'">D Block</h1>
+			<h1 v-else>Else Block</h1>
+		</div>
+		<div>
+			<button @click="dataToggle = !dataToggle">Show / Hide</button>
+			<div v-show="dataToggle">
+				<h3>Welcome to Wolfmania!</h3>
+				<h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem delectus corporis fuga dolore repudiandae atque nemo quod enim, ea repellat, consequatur quia eveniet sit. Autem dicta, repellendus magnam iusto molestiae.</h5>
+			</div>
+		</div>
+		<div>
+			<h2>
+				<ul>
+					<li v-for="(data, index) in datas">{{ index }} {{ data.name }} your age is {{ data.age }}</li>
+				</ul>
+			</h2>
+		</div>
+
+		<br>
+		<hr>
+		<br>
+
+		<div>
+			<input type="text" v-model="name" placeholder="Enter name">
+			<h3>Your name is : {{ name }}</h3>
+		</div>
+		<div>
+			<input type="checkbox" id="checkbox" v-model="checked">
+			<label for="checkbox">{{ checked }}</label>
+		</div>
+		<div>
+			<input type="checkbox" id="harry" value="Harry" v-model="checkedNames">
+			<label for="harry">Harry</label>
+			<input type="checkbox" id="ron" value="Ron" v-model="checkedNames">
+			<label for="ron">Ron</label>
+			<input type="checkbox" id="hermione" value="Hermione" v-model="checkedNames">
+			<label for="hermione">Hermione</label>
+			<br>
+			<h3>Checked names : {{ checkedNames }}</h3>
+		</div>
+
+		<div>
+			<input type="radio" id="male" value="Male" v-model="picked">
+			<label for="male">Male</label>
+			<br>
+			<input type="radio" id="female" value="Female" v-model="picked">
+			<label for="female">Female</label><br>
+			<h3>Picked : {{ picked }}</h3>
+		</div>
+
+		<div>
+			<select name="" v-model="selected" multiple>
+				<option v-for="selectData in selectDatas">{{ selectData }}</option>
+			</select>
+			<h3>Selected : {{ selected }}</h3>
+		</div>
+
+		<div>
+			<input type="number" v-model.number="inputNum1">
+			+
+			<input type="number" v-model.number="inputNum2">
+			<br>
+			<h3>Sum : {{ inputSum }}</h3>
+		</div>
+
+		<br>
+		<hr>
+		<br>
+
+		<div>
+			<textarea name="" id="" style="width: 100%" rows="10" v-model="textareaData"></textarea>
+			<h3>文字数チェッカー : {{ textareaData.length }}</h3>
+		</div>
+
+		<div>
+			<input type="number" v-model.number="tax">
+			<h3>消費税計算 : {{ Math.round(tax + (tax / 10)) }}</h3>
+		</div>
+
+		<div>
+			<input type="number" v-model.number="unTax">
+			<h3>税抜き計算 : {{ Math.round(unTax / 110 * 100) }}</h3>
+		</div>
+
+		<br>
+		<hr>
+		<br>
+
+		<input type="text" v-model="upperMessage">
+		<h1>No.of characters : {{ upperMessage | countLetters }}</h1>
+
+		<p>{{ user | json }}</p>
+
+		<h1>{{ nos | max }}</h1>
+
+		<h1>{{ user.country | repeatText(4) }}</h1>
+
+		<br>
+		<hr>
+		<br>
+
+		<greeting></greeting>
+		<button-counter></button-counter>
+		<button-counter></button-counter>
+		<button-counter></button-counter>
+		<change-msg></change-msg>
+		<user-name name="Obukata"></user-name>
+		<user-name name="Harry"></user-name>
+		<user-name name="Ron"></user-name>
+		<local-comp></local-comp>
+
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script src="/assets/scripts/main.js"></script>
+</body>
+</html>
