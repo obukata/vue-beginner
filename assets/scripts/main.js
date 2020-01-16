@@ -147,3 +147,23 @@ new Vue ({
 		},
 	},
 })
+
+var app_one = new Vue({
+	el: '#vue-app-one',
+	data: {
+		msg: 'Hi! There! I am 1st Instance'
+	},
+	methods: {
+		changeMessage() {
+			app_two.msg = 'Mesg of 2nd Instance, changed from 1st Instance'
+		}
+	}
+})
+
+var app_two = new Vue({
+	el: '#vue-app-two',
+	data: {
+		msg: 'Hi! There! I am 2nd Instance',
+		msg2: 'Hello there! How are you?'
+	}
+})

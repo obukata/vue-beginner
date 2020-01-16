@@ -148,6 +148,25 @@
 		<local-comp></local-comp>
 
 	</div>
+
+		<br>
+		<hr>
+		<br>
+
+	<div id="vue-app-one">
+		<p>First Instance</p>
+		<h1>{{ msg }}</h1>
+		<button @click="changeMessage">Change Message</button>
+	</div>
+
+	<hr>
+
+	<div id="vue-app-two">
+		<p>Second Instance</p>
+		<h1>{{ msg }}</h1>
+		<h1>{{ msg2 }}</h1>
+	</div>
+
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 	<script src="/assets/scripts/main.js"></script>
 </body>
